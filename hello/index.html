@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
     <head>
         <title>Simple app</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
     </head>
     <body>
-        <input ng-model="name" type="text" placeholder="Your name">
-        <h1>Hello {{ name }}</h1>
+        <div ng-controller="FirstController">
+            <h1>The simplest adding</h1>
+            <button ng-click="add(1)" class="button">Add</button>
+            <a ng-click="subtract(1)" class="button">Subtract</a>
+            <h4>Counter {{ counter }}</h4>
+        </div>
+        <div ng-controller="ParseController">
+            <input ng-model="expr" type="text" placeholder="Enter an expression">
+            <h2>{{ parseValue }}</h2>
+        </div>
+        <script src="app.js"></script>
     </body>
 </html>
