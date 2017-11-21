@@ -18,3 +18,12 @@ app.controller('ParseController', function($scope, $parse) {
         }
     });
 });
+
+app.controller('InterpolateController', function($scope, $interpolate) {
+    $scope.$watch('emailBody', function(body) {
+        if(body) {
+            var template = $interpolate(body);
+            $scope.previewText = template({ to: $scope.to });
+        }
+    });
+});
