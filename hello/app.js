@@ -13,8 +13,17 @@ email.config(['$interpolateProvider', function($interpolateProvider) {
         }
     }]);
 
+angular.module('filt', [])
+    .filter('capitialize', function() {
+        return function(input) {
+            if(input) {
+                return input[0].toUpperCase() +
+                       input.slice(1);
+            }
+        }
+    });
 
-var app = angular.module('app', ['emailParser']);
+var app = angular.module('app', ['emailParser', 'filt']);
 app.controller('EmailController', ['$scope', 'EmailParser', function($scope, EmailParser) {
     $scope.$watch('emailBody', function(body) {
         if(body) {
